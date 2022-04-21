@@ -122,7 +122,8 @@ COMMIT;
 SELECT *
 FROM EMP
 
-SELECT EID,ENAME,HIREDATE,first_value(HIREDATE) over(partition by deptno order BY HIREDATE) LAST_HIRE_DATE,(HIREDATE-first_value(HIREDATE) over(partition by deptno order BY HIREDATE)) DAYS,
+SELECT EID,ENAME,HIREDATE,first_value(HIREDATE) over(partition by deptno order BY HIREDATE) LAST_HIRE_DATE,(HIREDATE-first_value(HIREDATE) 
+over(partition by deptno order BY HIREDATE)) DAYS,
 (HIREDATE-LAST_value(HIREDATE) over(partition by deptno order BY HIREDATE)) DAYS2,LAST_value(HIREDATE) over(partition by deptno order BY HIREDATE) FIRST_HIRE_DATE
 FROM EMP
 
@@ -235,5 +236,7 @@ SELECT DEPT,ENAME ,(SELECT AVG(SAL)
     FROM JOB
     )
 FROM JOB
+
+
 
 
